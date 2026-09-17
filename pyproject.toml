@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "workiq-exporter"
+version = "0.1.0"
+description = "Store human-directed Microsoft Work IQ question and answer pairs locally."
+requires-python = ">=3.11"
+dependencies = [
+    "msal>=1.33,<2",
+    "requests>=2.32,<3",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.4,<9"]
+
+[project.scripts]
+workiq-exporter = "workiq_exporter.cli:main"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
